@@ -6,18 +6,18 @@ use App\Models\Buku;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 
-class BukuController extends Controller
+class KatalogController extends Controller
 {
     public function index()
     {
         $bukus = Buku::all();
         $categories = Kategori::all();
-        return view('admin.index', compact('bukus', 'categories'));
+        return view('admin.katalog.katalog', compact('bukus', 'categories'));
     }
     public function edit($id)
     {
         $buku = Buku::find($id); // Mengambil data buku dari database berdasarkan ID
-        return view('admin.edit', compact('buku')); // Menampilkan view edit dengan menyertakan data buku
+        return view('admin.katalog.editkatalog', compact('buku')); // Menampilkan view edit dengan menyertakan data buku
     }
     public function store(Request $request)
     {
